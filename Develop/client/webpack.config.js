@@ -7,14 +7,14 @@ module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
   return {
-    mode: isProduction ? 'production' : 'development',
+    mode:'development',
     entry: {
-      main: './client/src/js/index.js',
-      install: './client/src/js/install.js',
+      main: 'src/js/index.js',
+      install: 'src/js/install.js',
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'client/dist'),
+      path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
       new HtmlWebpackPlugin({
