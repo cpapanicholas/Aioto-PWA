@@ -5,15 +5,15 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './client/src/js/index.js', // Updated entry path
+  entry: './src/js/index.js', // Updated entry path
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'client', 'dist'),
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './client/src/index.html', // Updated template path
-      favicon: './client/src/favicon.ico', // Updated favicon path
+      template: './index.html', // Updated template path
+      favicon: './favicon.ico', // Updated favicon path
     }),
     new WebpackPwaManifest({
       name: 'J.A.T.E',
@@ -22,15 +22,16 @@ module.exports = {
       background_color: '#ffffff',
       theme_color: '#31a9e1',
       start_url: '/',
+      publicPath: '/',
       icons: [
         {
-          src: './client/src/images/logo.png',
+          src: './src/images/logo.png',
           sizes: [96, 128, 192, 256, 384, 512],
         },
       ],
     }),
     new InjectManifest({
-      swSrc: './client/src-sw.js',
+      swSrc: './src-sw.js',
       swDest: 'sw.js',
     }),
   ],
