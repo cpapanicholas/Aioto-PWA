@@ -5,15 +5,15 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './client/src/js/index.js', // Update this line
+  entry: './client/src/js/index.js', // Updated entry path
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'client', 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './client/src/index.html',
-      favicon: './client/src/favicon.ico',
+      template: './client/src/index.html', // Updated template path
+      favicon: './client/src/favicon.ico', // Updated favicon path
     }),
     new WebpackPwaManifest({
       name: 'J.A.T.E',
