@@ -11,8 +11,8 @@
   - [License](#license)
   - [Questions](#questions)
 
-  ## Heroku
-  LINK:
+  ## Render
+  LINK: https://aioto-pwa.onrender.com
   
   ## Installation
   To install copy this code into your designated folder and run npm install on the root level. Then run npm run build and then npm run start:dev.
