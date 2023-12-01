@@ -1,14 +1,14 @@
 import { openDB } from 'idb';
 
 const initdb = async () =>
-  openDB('jate', 1, {
+  openDB(DB_NAME, 1, {
     upgrade(db) {
-      if (db.objectStoreNames.contains('jate')) {
-        console.log('jate database already exists');
+      if (db.objectStoreNames.contains(STORE_NAME)) {
+        console.log(`${STORE_NAME} database already exists`);
         return;
       }
-      db.createObjectStore('jate', { keyPath: 'id', autoIncrement: true });
-      console.log('jate database created');
+      db.createObjectStore(STORE_NAME, { keyPath: 'id', autoIncrement: true });
+      console.log(`${STORE_NAME} database created`);
     },
   });
 
@@ -30,7 +30,7 @@ export const getDb = async () => {
   const store = tx.objectStore(STORE_NAME);
   const data = await store.getAll();
   await tx.complete;
-  return data.map(item => item.content);
+  return data.map((item) => item.content);
 };
 
 initdb();
